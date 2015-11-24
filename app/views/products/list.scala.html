@@ -1,0 +1,16 @@
+@(products: List[Product])(implicit lang: Lang, flash: Flash)
+@main("标题") {
+    <dl class="products">
+    @for(product <- products) {
+        <dt>
+            <a href="@controllers.routes.Products.show(product.ean)">@product.name</a>
+        </dt>
+        <dt>@product.description</dt>
+    }
+    </dl>
+    <p>
+        <a href="@controllers.routes.Products.newProduct()" class="btn">
+            <i class="icon-plus"></i>新增
+        </a>
+    </p>
+}
